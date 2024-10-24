@@ -26,7 +26,7 @@ public class Pizze extends GenericClass {
     private String formatoPizza;
 
     @Column(name = "pomodoro")
-    private String pomodoro;u
+    private String pomodoro;
 
     @Column(name = "mozzarella")
     private String mozzarella;
