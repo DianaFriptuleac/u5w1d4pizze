@@ -1,14 +1,33 @@
 package friptuleacdiana.u5w1d4pizze.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.List;
 
+@Entity
+@Table(name = "pizze")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Pizze extends GenericClass {
-    private List<String> toppings;
+    @ManyToMany
+    private List<Toppings> toppings;
+    @Column(name = "formato_pizza")
     private String formatoPizza;
+
+    @Column(name = "pomodoro")
     private String pomodoro;
+
+    @Column(name = "mozzarella")
     private String mozzarella;
 
-    public Pizze(String nome, double prezzo, int calorie, List<String> toppings, String formatoPizza) {
+    public Pizze(String nome, double prezzo, int calorie, List<Toppings> toppings, String formatoPizza) {
         super(nome, prezzo, calorie);
         this.toppings = toppings;
         this.formatoPizza = formatoPizza;
@@ -16,12 +35,13 @@ public class Pizze extends GenericClass {
         this.mozzarella = "Mozzarella";
     }
 
+
     @Override
     public String toString() {
         return "Nome: '" + nome + '\'' +
                 ", Prezzo: " + prezzo + "€ , Calorie: " + calorie +
                 ", Condimenti: '" + pomodoro + '\'' + ", '" + mozzarella + '\'' +
-                ", Condimento aggiunto: " + (toppings.isEmpty() ? "nessuno" : String.join(", ", toppings)) +
+                ", Condimento aggiunto: " + (toppings.isEmpty() ? "nessuno" : toppings) +
                 ", Formato pizza: " + formatoPizza;
     }
 }
