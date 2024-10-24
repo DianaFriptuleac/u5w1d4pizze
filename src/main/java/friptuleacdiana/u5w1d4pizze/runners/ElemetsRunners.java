@@ -75,5 +75,13 @@ public class ElemetsRunners implements CommandLineRunner {
 
         List<Pizze> pizzeXL = elementsService.getAllPizzeByFormato("XL");
         log.info("Pizze XL trovate: {}", pizzeXL);
+
+
+        List<Toppings> toppingsCostosi = elementsService.getToppingsByPrezzo(1.00);
+        log.info("Toppings con prezzo maggiore di 1.00: {}", toppingsCostosi);
+
+        List<Bevande> bevandeTrovate = elementsService.getBevandeByQuantita(0.33);
+        log.info("Bevande con quantità di 0.33 litri: {}", bevandeTrovate);
     }
+
 }
