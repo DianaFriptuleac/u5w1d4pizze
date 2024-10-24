@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 @MappedSuperclass //non mi prea la tabella nel DB xke e una superclasse (non viene mappata come una tabella)
 @NoArgsConstructor
 public abstract class GenericClass {
-
     @Column(name = "nome")
     protected String nome;
     @Column(name = "prezzo")
@@ -16,6 +15,7 @@ public abstract class GenericClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 
     public GenericClass(String nome, double prezzo, int calorie) {
         this.nome = nome;

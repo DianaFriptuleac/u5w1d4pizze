@@ -1,9 +1,6 @@
 package friptuleacdiana.u5w1d4pizze.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +13,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Pizze extends GenericClass {
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Toppings> toppings;
     @Column(name = "formato_pizza")
     private String formatoPizza;

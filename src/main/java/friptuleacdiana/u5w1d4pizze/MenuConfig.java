@@ -16,9 +16,9 @@ public class MenuConfig {
     // Pizze
     @Bean(name = "pizzaMargherita")
     public Pizze margherita() {
-        // La Margherita non ha topping aggiuntivi, solo pomodoro e mozzarella di base
         return new Pizze("Margherita", 6.50, 1104, new ArrayList<>(), "Classica");
     }
+
 
     @Bean(name = "pizzaSalamePiccante")
     public Pizze salamePiccante(@Qualifier("toppingSalamePiccante") Toppings tSalamePiccante) {
