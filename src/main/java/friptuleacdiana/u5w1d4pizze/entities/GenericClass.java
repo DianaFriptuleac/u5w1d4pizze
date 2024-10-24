@@ -1,10 +1,12 @@
 package friptuleacdiana.u5w1d4pizze.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @MappedSuperclass //non mi prea la tabella nel DB xke e una superclasse (non viene mappata come una tabella)
 @NoArgsConstructor
+@Getter
 public abstract class GenericClass {
     @Column(name = "nome")
     protected String nome;

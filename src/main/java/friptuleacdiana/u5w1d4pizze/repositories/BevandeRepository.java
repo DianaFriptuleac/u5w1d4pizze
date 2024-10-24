@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface BevandeRepository extends JpaRepository<Bevande, Long> {
-    // bevande con una quantità specifica
+    // bevande con una quantita specifica
     List<Bevande> findByQuantita(double quantita);
 
 }

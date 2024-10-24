@@ -14,12 +14,19 @@ import java.util.List;
 @NoArgsConstructor
 public class Pizze extends GenericClass {
     @ManyToMany(fetch = FetchType.EAGER)
+    //quando recupero un'istanza dell'entità principale, qua Pizze
+    // JPA mi carichea immediatamente tutte le entita associate - qua i Toppings.
+    @JoinTable(
+            name = "pizza_toppings",  // Nome della tabella di join
+            joinColumns = @JoinColumn(name = "pizza_id"),
+            inverseJoinColumns = @JoinColumn(name = "topping_id")
+    )
     private List<Toppings> toppings;
     @Column(name = "formato_pizza")
     private String formatoPizza;
 
     @Column(name = "pomodoro")
-    private String pomodoro;
+    private String pomodoro;u
 
     @Column(name = "mozzarella")
     private String mozzarella;

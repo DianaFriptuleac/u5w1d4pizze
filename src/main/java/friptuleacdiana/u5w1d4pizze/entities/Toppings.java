@@ -15,10 +15,6 @@ public class Toppings extends GenericClass {
         super(nome, prezzo, calorie);
     }
 
-    public String getNome() {
-        return nome;
-    }
-
 
     @Override
     public String toString() {

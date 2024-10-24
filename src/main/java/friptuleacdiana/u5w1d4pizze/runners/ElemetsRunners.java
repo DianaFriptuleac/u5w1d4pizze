@@ -46,42 +46,31 @@ public class ElemetsRunners implements CommandLineRunner {
         Toppings toppingSalamePiccante = (Toppings) context.getBean("toppingSalamePiccante");
         Toppings toppingFunghi = (Toppings) context.getBean("toppingFunghi");
         Toppings toppingRucola = (Toppings) context.getBean("toppingRucola");
- /*
-        toppingsRepository.save(toppingBuffala);
-        toppingsRepository.save(toppingSalamePiccante);
-        toppingsRepository.save(toppingFunghi);
-        toppingsRepository.save(toppingRucola);
+        //elementsService.saveToppings(List.of(toppingBuffala, toppingSalamePiccante, toppingFunghi, toppingRucola));
 
-*/
         Pizze pizzaMargherita = (Pizze) context.getBean("pizzaMargherita");
         Pizze pizzaSalamePiccante = (Pizze) context.getBean("pizzaSalamePiccante");
         Pizze pizzaBuffala = (Pizze) context.getBean("pizzaBuffala");
+        // elementsService.savePizze(List.of(pizzaMargherita, pizzaSalamePiccante, pizzaBuffala));
 
-     /*   pizzeRepository.save(pizzaMargherita);
-        pizzeRepository.save(pizzaSalamePiccante);
-        pizzeRepository.save(pizzaBuffala);
 
-*/
         Bevande cocaCola = (Bevande) context.getBean("bevandaCocaCola");
         Bevande birra = (Bevande) context.getBean("bevandaBirra");
         Bevande acqua = (Bevande) context.getBean("bevandaAcqua");
 
-       /* bevandeRepository.save(cocaCola);
-        bevandeRepository.save(birra);
-        bevandeRepository.save(acqua);
+        // elementsService.saveBevande(List.of(cocaCola, birra, acqua));
+        //log.info("Gli elementi sono stati salvati correttamente nel db!");
 
-        log.info("Gli elementi sono stati salvati correttamente nel db!");
-*/
 
         List<Pizze> pizzeXL = elementsService.getAllPizzeByFormato("XL");
         log.info("Pizze XL trovate: {}", pizzeXL);
 
 
         List<Toppings> toppingsCostosi = elementsService.getToppingsByPrezzo(1.00);
-        log.info("Toppings con prezzo maggiore di 1.00: {}", toppingsCostosi);
+        log.info("Toppings con prezzo maggiore di 1.00:{} ", toppingsCostosi);
 
         List<Bevande> bevandeTrovate = elementsService.getBevandeByQuantita(0.33);
-        log.info("Bevande con quantità di 0.33 litri: {}", bevandeTrovate);
+        log.info("Bevande con quantità di 0.33 litri:{} ", bevandeTrovate);
     }
 
 }

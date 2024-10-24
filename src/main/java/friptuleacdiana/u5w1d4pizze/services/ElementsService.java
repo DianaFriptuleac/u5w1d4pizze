@@ -25,8 +25,40 @@ public class ElementsService {
     @Autowired
     private BevandeRepository bevandeRepository;
 
+    // Metodi save che chiamo poi nel runner
+    public void saveToppings(List<Toppings> toppings) {
+        toppings.forEach(topping -> {
+            if (topping.getPrezzo() > 0) {
+                toppingsRepository.save(topping);
+                log.info("Salvato topping: {}", topping.getNome());
+            } else {
+                log.warn("Prezzo non valido per il topping: {}", topping.getNome());
+            }
+        });
+    }
+
+
+    public void savePizze(List<Pizze> pizze) {
+        pizze.forEach(pizza -> {
+            if (pizza.getPrezzo() > 2) {
+                pizzeRepository.save(pizza);
+                log.info("Salvata pizza: {}", pizza.getNome());
+            } else {
+                log.warn("Prezzo troppo basso per la pizza: {}", pizza.getNome());
+            }
+        });
+    }
+
+    public void saveBevande(List<Bevande> bevande) {
+        bevande.forEach(bevanda -> {
+            bevandeRepository.save(bevanda);
+            log.info("Salvata bevanda: {}", bevanda.getNome());
+        });
+    }
+
+
     public List<Pizze> getAllPizzeByFormato(String formatoPizza) {
-        log.info("Pizze per il fomato cercato: ", formatoPizza);
+        log.info("Pizze per il fomato cercato: {}", formatoPizza);
         return pizzeRepository.findByFormatoPizza(formatoPizza);
     }
 
